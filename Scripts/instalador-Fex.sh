@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg install -y ncurses-utils
+pkg install -y ncurses-utils wget
 
 function box_out_success() {
   local s=("$@") b w
@@ -102,9 +102,7 @@ lines=("UPDATING PACKAGES"
 
 box_out_warning "${lines[@]}"
 
-pkg update -y &
-
-wait
+pkg update -y 
 
 
 
@@ -114,8 +112,7 @@ lines=("INSTALLING X11-REPO"
        "[CTRL+C] EXIT")
 
 box_out_warning "${lines[@]}"
-pkg install x11-repo -y & &>/dev/null
-wait
+pkg install x11-repo -y &>/dev/null
 
 
 lines=("X11-REPO INSTALLED"
@@ -136,16 +133,13 @@ box_out_warning "${lines[@]}"
 if [ $option = 1 ]
 then
 
-       pkg install pulseaudio wget tsu xkeyboard-config wget -y & &>/dev/null
+       pkg install pulseaudio wget tsu xkeyboard-config wget -y &>/dev/null
 
 elif [ $option = 2 ]
 then
-       pkg install pulseaudio wget xkeyboard-config proot-distro wget -y & &>/dev/null  
+       pkg install pulseaudio wget xkeyboard-config proot-distro wget -y &>/dev/null  
 
 fi
-
-wait
-
 
 lines=("PACKAGES INSTALLED"
        ""
