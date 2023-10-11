@@ -48,6 +48,8 @@ else
         . /opt/Scripts/start-fex
 fi
 
+box_out_success "SELECTED RESOLUTION: $res"
+
 WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,$res /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,$res &>/dev/null
 
 read -p "" sair
