@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pkg install -y ncurses-utils wget
-
+clear
 function box_out_success() {
   local s=("$@") b w
 
@@ -60,10 +60,11 @@ function box_out_failure() {
 }
 
 
-
+clear
 
 box_out_success FEXDROID
 sleep 3
+clear
 
 echo "[SELECT AN OPTION]"
 
@@ -203,6 +204,16 @@ then
 
   sleep 1
 
+else
+
+lines=("CREATED FEXDROID PREFIX"
+         ""
+         "[CTRL+C] EXIT")
+
+  box_out_success "${lines[@]}"
+
+sleep 1
+
 fi
 
 
@@ -236,6 +247,36 @@ fi
 
 
 clear
+lines=("DOWNLOADING UBUNTU-ROOTFS"
+       "PLEASE WAIT"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
+
+if [ $option = 1 ]
+then
+       wget -q https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs-chroot.tar.xz
+elif [ $option = 2 ]
+then
+       mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/ &>/dev/null
+       mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ &>/dev/null
+       mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu &>/dev/null
+       wget -q https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs.tar.xz
+fi
+
+clear
+
+lines=("FINISHED DOWNLOADING UBUNTU-ROOTFS"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_success "${lines[@]}"
+
+sleep 2
+
+clear
+
 lines=("INSTALLING UBUNTU-ROOTFS"
        "PLEASE WAIT"
        ""
@@ -245,9 +286,32 @@ box_out_warning "${lines[@]}"
 
 if [ $option = 1 ]
 then
-  wget -q https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs-chroot.tar.xz
   sudo mkdir ~/Fex
   sudo tar -xJf box64droid-rootfs-chroot.tar.xz -C ~/Fex &>/dev/null
+elif [ $option = 2 ]
+then
+  proot-distro restore box64droid-rootfs.tar.xz &>/dev/null
+fi
+
+lines=("FINISHED INSTALLING UBUNTU-ROOTFS"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_success "${lines[@]}"
+
+sleep 2
+
+clear
+
+lines=("FINISHING CONFIG UBUNTU-ROOTFS"
+       "PLEASE WAIT"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
+
+if [ $option = 1 ]
+then
   cd Fex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && sudo chmod +x checkconfig
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && sudo chmod +x Fexconfig
@@ -264,11 +328,6 @@ then
 
 elif [ $option = 2 ]
 then
-  mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/ &>/dev/null
-	mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ &>/dev/null
-	mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu &>/dev/null
-	wget -q https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs.tar.xz
-  proot-distro restore box64droid-rootfs.tar.xz &>/dev/null
   cd /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && chmod +x Fexconfig
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && chmod +x InstallFex
