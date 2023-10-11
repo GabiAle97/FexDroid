@@ -7,6 +7,9 @@ chmod +x Fex
 chmod +x InstallFex
 chmod +x FexMore
 
+. /opt/Box64Droid.conf
+. /opt/DXVK_D8VK_HUD.conf
+
 cd Scripts
 
 chmod +x start-fex
