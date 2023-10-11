@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pkg install ncurses-utils
+
 function box_out_success() {
   local s=("$@") b w
 
@@ -93,103 +95,86 @@ box_out_warning "${lines[@]}"
 wait
 clear 
 
+pkg update -y &
+
 lines=("UPDATING PACKAGES"
        "PLEASE WAIT"
        ""
        "[CTRL+C] EXIT")
 
 box_out_warning "${lines[@]}"
-#pkg update -y
-#
-#clear
-#
-#echo "==============================="
-#echo "=                             ="
-#echo "=  INSTALANDO REPOSITORIO..   ="
-#echo "=                             ="
-#echo "=  [CRT + C] PARA CANCELAR    ="
-#echo "=                             ="
-#echo "=  AGUARDE .                  ="
-#echo "=                             ="
-#echo "=                             ="
-#echo "==============================="
-#
-#pkg install x11-repo -y &>/dev/null
-#
-#clear
-#
-#echo "==============================="
-#echo "=                             ="
-#echo "=  REPOSITORIO INSTALADO..    ="
-#echo "=                             ="
-#echo "=  [CRT + C] PARA CANCELAR    ="
-#echo "=                             ="
-#echo "=  AGUARDE .                  ="
-#echo "=                             ="
-#echo "=                             ="
-#echo "==============================="
-#
-#sleep 2
-#
-#clear 
-#
-#echo "==============================="
-#echo "=                             ="
-#echo "=  INSTALANDO PACOTES..       ="
-#echo "=                             ="
-#echo "=  [CRT + C] PARA CANCELAR    ="
-#echo "=                             ="
-#echo "=  AGUARDE .                  ="
-#echo "=                             ="
-#echo "=                             ="
-#echo "==============================="
-#
-#
-#if [ $opcao = 1 ]
-#then
-#
-#       pkg install pulseaudio wget tsu xkeyboard-config wget -y &>/dev/null
-#
-#elif [ $opcao = 2 ]
-#then
-#       pkg install pulseaudio wget xkeyboard-config proot-distro wget -y &>/dev/null  
-#
-#fi
-#
-#clear
-#
-#echo "==============================="
-#echo "=                             ="
-#echo "=  PACOTES INSTALADOS..       ="
-#echo "=                             ="
-#echo "=  [CRT + C] PARA CANCELAR    ="
-#echo "=                             ="
-#echo "=  AGUARDE .                  ="
-#echo "=                             ="
-#echo "=                             ="
-#echo "==============================="
-#
-#sleep 1
-#
-#clear
-#
-#echo "==============================="
-#echo "=                             ="
-#echo "=  INSTALANDO TERMUX:X11.DEB  ="
-#echo "=                             ="
-#echo "=  [CRT + C] PARA CANCELAR    ="
-#echo "=                             ="
-#echo "=  AGUARDE .                  ="
-#echo "=                             ="
-#echo "=                             ="
-#echo "==============================="
-#
-#wget https://github.com/OpomboMORTO/FEX-android/raw/main/Apps/termux-x11-nightly-1.03.00-0-all.deb &>/dev/null
-#dpkg -i termux-x11-nightly-1.03.00-0-all.deb &>/dev/null
-#rm -f termux-x11-nightly-1.03.00-0-all.deb
-#
-#clear
-#
+wait
+clear
+
+pkg install x11-repo -y &>/dev/null
+
+lines=("INSTALLING X11-REPO"
+       "PLEASE WAIT"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
+wait
+clear
+
+lines=("X11-REPO INSTALLED"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_success "${lines[@]}"
+sleep 2
+clear
+
+if [ $opcao = 1 ]
+then
+
+       pkg install pulseaudio wget tsu xkeyboard-config wget -y & &>/dev/null
+
+elif [ $opcao = 2 ]
+then
+       pkg install pulseaudio wget xkeyboard-config proot-distro wget -y & &>/dev/null  
+
+fi
+
+
+lines=("INSTALLING PACKAGES"
+       "PLEASE WAIT"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
+wait
+clear
+
+lines=("PACKAGES INSTALLED"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_success "${lines[@]}"
+sleep 1
+clear
+
+lines=("INSTALLING TERMUX:X11.DEB"
+       "PLEASE WAIT"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
+
+wget https://github.com/GabiAle97/FexDroid/raw/main/Apps/termux-x11-nightly-1.03.00-0-all.deb &>/dev/null
+dpkg -i termux-x11-nightly-1.03.00-0-all.deb &>/dev/null
+rm -f termux-x11-nightly-1.03.00-0-all.deb
+
+wait
+clear
+
+lines=("TERMUX:X11.DEB INSTALLED"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
+
+sleep 2
 #echo "==============================="
 #echo "=                             ="
 #echo "=  TERMUX:X11.DEB INSTALADO   ="
