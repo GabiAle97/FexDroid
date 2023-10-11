@@ -67,6 +67,7 @@ sleep 3
 
 echo "[SELECT AN OPTION]"
 
+clear
 lines=("1) FEXDROID ROOT"
        "2) FEXDROID NON-ROOT"
        ""
@@ -86,6 +87,7 @@ fi
  
 termux-setup-storage & &>/dev/null
 
+clear
 lines=("STORAGE PERMISSION"
        "PLEASE WAIT"
        ""
@@ -95,6 +97,7 @@ box_out_warning "${lines[@]}"
 wait
  
 
+clear
 lines=("UPDATING PACKAGES"
        "PLEASE WAIT"
        ""
@@ -106,6 +109,7 @@ pkg update -y
 
 
 
+clear
 lines=("INSTALLING X11-REPO"
        "PLEASE WAIT"
        ""
@@ -115,6 +119,7 @@ box_out_warning "${lines[@]}"
 pkg install x11-repo -y &>/dev/null
 
 
+clear
 lines=("X11-REPO INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -123,6 +128,7 @@ box_out_success "${lines[@]}"
 sleep 2
 
 
+clear
 lines=("INSTALLING PACKAGES"
        "PLEASE WAIT"
        ""
@@ -141,6 +147,7 @@ then
 
 fi
 
+clear
 lines=("PACKAGES INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -149,6 +156,7 @@ box_out_success "${lines[@]}"
 sleep 1
 
 
+clear
 lines=("INSTALLING TERMUX:X11.DEB"
        "PLEASE WAIT"
        ""
@@ -163,6 +171,7 @@ rm -f termux-x11-nightly-1.03.00-0-all.deb
 wait
 
 
+clear
 lines=("TERMUX:X11.DEB INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -172,6 +181,7 @@ box_out_success "${lines[@]}"
 sleep 2
 
 
+clear
 lines=("CREATING FEXDROID SYSTEM"
        "PLEASE WAIT"
        ""
@@ -182,6 +192,7 @@ box_out_warning "${lines[@]}"
 if [ -f $PREFIX/bin/Fex ]
 then
 
+    clear
     lines=("FEXDROID PREFIX ALREADY EXISTS"
          ""
          "[CTRL+C] EXIT")
@@ -198,6 +209,7 @@ fi
 if [ -d /sdcard/Fex ]
 then
 
+    clear
     lines=("FEXDROID FOLDER ALREADY EXISTS"
          ""
          "[CTRL+C] EXIT")
@@ -210,6 +222,7 @@ else
 
   mkdir /sdcard/Fex
 
+    clear
     lines=("FEXDROID SYSTEM INSTALLED"
          ""
          "[CTRL+C] EXIT")
@@ -222,6 +235,7 @@ fi
 
 
 
+clear
 lines=("INSTALLING UBUNTU-ROOTFS"
        "PLEASE WAIT"
        ""
@@ -257,14 +271,15 @@ then
   proot-distro restore box64droid-rootfs.tar.xz &>/dev/null
   cd /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt
   rm -f checkconfig start
-  wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
-  wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && chmod+x Fexconfig
+  wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && chmod +x Fexconfig
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && chmod +x InstallFex
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && chmod +x Fex
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore && chmod +x FexMore
   cd Scripts
   rm -f start-box64
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && chmod +x start-fex
+  rm -f checkconfig
+  wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
   cd $HOME
 fi
 
@@ -272,6 +287,7 @@ sleep 1
 
 
 
+clear
 lines=("UBUNTU-ROOTFS INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -282,6 +298,7 @@ sleep 1
 
 
 
+clear
 lines=("CREATING LAUNCHER"
        "PLEASE WAIT"
        ""
@@ -297,6 +314,7 @@ sleep 1
 
 
 
+clear
 lines=("DELETING JUNK"
        "PLEASE WAIT"
        ""
@@ -322,6 +340,9 @@ sleep 2
 
 
 
+clear
 lines=("INSTALLATION FINISHED")
 
 box_out_warning "${lines[@]}"
+
+./fex

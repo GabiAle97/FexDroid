@@ -2,25 +2,6 @@
 
 clear
 
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | INSTALANDO FEX-CORE   |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   |                       ||       |   | \  |"
-echo "|   |   |                       ||       |   |  \ |"
-echo "|   |   |                   ... ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |         [CTRL + C]   -  DESLIGAR   |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
-
 sleep 5
 
 apt-get update -y &>/dev/null
@@ -30,6 +11,8 @@ apt-get upgrade -y &>/dev/null
 apt install sudo -y curl -y &>/dev/null
 
 sudo apt-get install software-properties-common -y &>/dev/null
+
+sudo apt-get install --reinstall -y winbind lsb-core zstd wget pv pip gpg libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio -y &>/dev/null
 
 curl --silent https://raw.githubusercontent.com/FEX-Emu/FEX/main/Scripts/InstallFEX.py --output /tmp/InstallFEX.py && python3 /tmp/InstallFEX.py && rm /tmp/InstallFEX.py
 

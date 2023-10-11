@@ -1,0 +1,267 @@
+#!/bin/bash
+clear
+echo "This script will change Wine version"
+echo "Select need Wine build:"
+echo "1) Stable"
+echo "2) Staging"
+echo "3) Staging-tkg"
+echo "4) Proton"
+echo "5) Wine GE"
+echo "6) Back to previous menu"
+echo ""
+read build
+cd /opt
+if [ $build = 1 ]
+then
+	clear
+        echo "Select need Wine version:"
+	echo "1) 7.5"
+	echo "2) 7.20"
+	echo "3) 8.0"
+	echo "4) 8.5"
+	echo "5) 8.13"
+	echo "6) 8.15 (not working on Adreno 7xx/610)"
+        echo "7) 8.16"
+        echo "8) 8.17"
+	echo ""
+        read ver
+	if [ $ver = 1 ]
+	then
+		export ver=7.5
+	elif [ $ver = 2 ]
+	then
+		export ver=7.20
+	elif [ $ver = 3 ]
+	then
+		export ver=8.0
+	elif [ $ver = 4 ]
+	then
+		export ver=8.5
+	elif [ $ver = 5 ]
+	then
+		export ver=8.13
+        elif [ $ver = 6 ]
+	then
+		export ver=8.15
+        elif [ $ver = 7 ]
+	then
+		export ver=8.16
+        elif [ $ver = 8 ]
+	then
+		export ver=8.17
+	else
+		echo "Incorrect Wine version"
+		. /opt/Scripts/changewinever
+	fi
+        echo "Removing current Wine..."
+        rm -r wine
+       	echo "Removing current Wine prefix..."
+	rm -r ~/.wine
+        echo "Downloading and unpacking Wine Stable $ver..."
+        wget https://github.com/Kron4ek/Wine-Builds/releases/download/$ver/wine-$ver-amd64.tar.xz -q
+        tar -xf wine-$ver-amd64.tar.xz
+        echo "Removing unpacked archive..."
+        rm wine-$ver-amd64.tar.xz
+        mv wine-$ver-amd64 wine
+elif [ $build = 2 ]
+then
+	clear
+	echo "Select need Wine version:"
+        echo "1) 7.5"
+        echo "2) 7.20"
+        echo "3) 8.0"
+        echo "4) 8.5"
+        echo "5) 8.13"
+        echo "6) 8.15 (not working on Adreno 7xx/610)"
+        echo "7) 8.16"
+        echo "8) 8.17"
+	echo ""
+        read ver
+        if [ $ver = 1 ]
+        then
+                export ver=7.5
+        elif [ $ver = 2 ]
+        then
+                export ver=7.20
+        elif [ $ver = 3 ]
+        then
+                export ver=8.0
+        elif [ $ver = 4 ]
+        then
+                export ver=8.5
+        elif [ $ver = 5 ]
+        then
+                export ver=8.13
+        elif [ $ver = 6 ]
+	then
+		export ver=8.15
+        elif [ $ver = 7 ]
+	then
+		export ver=8.16
+        elif [ $ver = 8 ]
+	then
+		export ver=8.17
+	else
+                echo "Incorrect Wine version"
+                . /opt/Scripts/changewinever
+        fi
+        echo "Removing current Wine..."
+        rm -r wine
+        echo "Removing current Wine prefix..."
+        rm -r ~/.wine
+        echo "Downloading and unpacking Wine Staging $ver..."
+        wget https://github.com/Kron4ek/Wine-Builds/releases/download/$ver/wine-$ver-staging-amd64.tar.xz -q
+        tar -xf wine-$ver-staging-amd64.tar.xz
+        echo "Removing unpacked archive..."
+        rm wine-$ver-staging-amd64.tar.xz
+        mv wine-$ver-staging-amd64 wine
+elif [ $build = 3 ]
+then
+	clear
+	echo "Select need Wine version:"
+        echo "1) 7.5"
+        echo "2) 7.20"
+        echo "3) 8.0"
+        echo "4) 8.5"
+        echo "5) 8.13"
+        echo "6) 8.15 (not working on Adreno 7xx/610)"
+        echo "7) 8.16"
+        echo "8) 8.17"
+        echo ""
+        read ver
+        if [ $ver = 1 ]
+        then
+                export ver=7.5
+        elif [ $ver = 2 ]
+        then
+                export ver=7.20
+        elif [ $ver = 3 ]
+        then
+                export ver=8.0
+        elif [ $ver = 4 ]
+        then
+                export ver=8.5
+        elif [ $ver = 5 ]
+        then
+                export ver=8.13
+        elif [ $ver = 6 ]
+	then
+		export ver=8.15
+        elif [ $ver = 7 ]
+	then
+		export ver=8.16
+        elif [ $ver = 8 ]
+	then
+		export ver=8.17
+        else
+                echo "Incorrect Wine version"
+                . /opt/Scripts/changewinever
+        fi
+        echo "Removing current Wine..."
+        rm -r wine
+        echo "Removing current Wine prefix..."
+        rm -r ~/.wine
+        echo "Downloading and unpacking Wine Staging-tkg $ver..."
+        wget https://github.com/Kron4ek/Wine-Builds/releases/download/$ver/wine-$ver-staging-tkg-amd64.tar.xz -q
+        tar -xf wine-$ver-staging-tkg-amd64.tar.xz
+        echo "Removing unpacked archive..."
+        rm wine-$ver-staging-tkg-amd64.tar.xz
+        mv wine-$ver-staging-tkg-amd64 wine
+elif [ $build = 4 ]
+then
+        echo "Select Proton version:"
+        echo "1) 8.0-3"
+        echo "2) Experimental 8.0"
+        echo "3) 8.0-4"
+        echo ""
+        read ver
+        if [ $ver = 1 ]
+        then
+                export ver="8.0-3"
+        elif [ $ver = 2 ]
+        then
+                export ver="exp-8.0"
+        elif [ $ver = 3 ]
+        then
+                export ver="8.0-4"
+        else
+                echo "Incorrect Proton version"
+                . /opt/Scripts/changewinever
+        fi
+	echo "Removing current Wine..."
+	rm -r wine
+	echo "Removing current Wine prefix..."
+        rm -r ~/.wine
+        echo "Downloading and unpacking Proton $ver..."
+        wget https://github.com/Kron4ek/Wine-Builds/releases/download/proton-$ver/wine-proton-$ver-amd64.tar.xz -q
+        tar -xf wine-proton-$ver-amd64.tar.xz
+        echo "Removing unpacked archive..."
+        rm wine-proton-$ver-amd64.tar.xz
+        mv wine-proton-$ver-amd64 wine
+elif [ $build = 5 ]
+then
+	clear
+        echo "Select need Wine version:"
+        echo "1) 8-13"
+        echo "2) 8-14"
+        echo "3) 8-15"
+        echo "4) 8-16 (Not working, waiting for Box86 update)"
+        echo "5) 8-17 (Not working, waiting for Box86 update)"
+        echo ""
+        read ver
+        if [ $ver = 1 ]
+        then
+                export ver=8-13
+        elif [ $ver = 2 ]
+        then
+		export ver=8-14
+        elif [ $ver = 3 ]
+        then
+		export ver=8-15
+        elif [ $ver = 4 ]
+        then
+		export ver=8-16
+        elif [ $ver = 5 ]
+        then
+		export ver=8-17
+	else
+                echo "Incorrect Wine version"
+                . /opt/Scripts/changewinever
+        fi
+	echo "Removing current Wine..."
+        rm -r wine
+        echo "Removing current Wine prefix..."
+        rm -r ~/.wine
+	echo "Downloading and unpacking Wine GE $ver..."
+	wget https://github.com/GloriousEggroll/wine-ge-custom/releases/download/GE-Proton$ver/wine-lutris-GE-Proton$ver-x86_64.tar.xz -q
+	tar -xf wine-lutris-GE-Proton$ver-x86_64.tar.xz
+        echo "Removing unpacked archive..."
+        rm wine-lutris-GE-Proton$ver-x86_64.tar.xz
+        mv lutris-GE-Proton$ver-x86_64 wine
+elif [ $build = 6 ]
+then
+        . /opt/Scripts/checkconfig
+else
+        echo "Incorrect Wine version"
+        clear
+        . /opt/Scripts/changewinever
+fi
+echo "Creating new Wine prefix..."
+WINEDLLOVERRIDES=mscoree=d box64 wineboot &>/dev/null
+echo "Installing DXVK 2.2, D8VK 1.0, vkd3d-proton 2.10..."
+box64 wine64 z:/opt/Resources64/DXVK2.2/DXVK2.2.bat &>/dev/null
+echo "Done installing DXVK2.2"
+cp /opt/Resources/D8VK1.0/d3d8.dll /root/.wine/drive_c/windows/syswow64/
+echo "Copied D8VK 1.0"
+cp /opt/Resources/vkd3d-proton2.10/d3d12*.dll /root/.wine/drive_c/windows/syswow64/
+echo "Copied VKD3D 2.10 x64"
+cp /opt/Resources64/vkd3d-proton2.10/d3d12*.dll /root/.wine/drive_c/windows/system32/
+echo "Copied VKD3D 2.10 x86"
+box64 wine64 z:/opt/Resources64/OverrideDlls.bat &>/dev/null
+echo "Copying shortucts..."
+cp -r /opt/Shortcuts/* "/root/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu"
+ln -s /sdcard/Download /root/.wine/dosdevices/d:
+rm -rf /opt/registry-updated
+echo "Wine version changed, back to start menu..."
+. /opt/Scripts/checkconfig
+

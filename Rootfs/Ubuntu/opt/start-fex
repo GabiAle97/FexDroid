@@ -1,194 +1,54 @@
 #!/bin/bash
-echo "GLORIA AOS POMBOS"
 
 clear
 
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | 1-800x600  2-1024x768 |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   | 3-1280x720            ||       |   | \  |"
-echo "|   |   |                       ||       |   |  \ |"
-echo "|   |   | 4-customizado         ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |  8 - MAIS..        0 -  DESLIGAR   |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
+lines=("Select need resoultion:"
+       "1) 800x600 (4:3)"
+       "2) 1024x768 (4:3)"
+       "3) 1280x720 (16:9)"
+       "4) 1920x1080 (16:9)"
+       "5) Custom resolution"
+       "6) Back to previous menu"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
 
 read res
 clear
-if [ $res = "1" ]
+
+if [ $res = 1 ]
 then
-
-clear
-
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | res = (800x600)       |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   |                       ||       |   | \  |"
-echo "|   |   | x11 start             ||       |   |  \ |"
-echo "|   |   |                       ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |                                    |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
-
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,800x600 /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,800x600 &>/dev/null
-
-elif [ $res = "2" ]
+	export res="800x600"
+elif [ $res = 2 ]
 then
-
-clear
-
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | res = (1024x768)      |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   |                       ||       |   | \  |"
-echo "|   |   | x11 start             ||       |   |  \ |"
-echo "|   |   |                       ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |                                    |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
-
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,1024x768 /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,1024x768 &>/dev/null
-
-elif [ $res = "3" ]
+	export res="1024x768"
+elif [ $res = 3 ]
 then
-
-clear
-
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | res = (1280x720)      |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   |                       ||       |   | \  |"
-echo "|   |   | x11 start             ||       |   |  \ |"
-echo "|   |   |                       ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |                                    |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
-
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,1280x720 /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,1280x720 &>/dev/null
-
-elif [ $res = "5" ]
+	export res="1280x720"
+elif [ $res = 4 ]
 then
-
-clear
-
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | res = (1600x1040)     |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   |                       ||       |   | \  |"
-echo "|   |   | x11 start             ||       |   |  \ |"
-echo "|   |   |                       ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |                                    |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
-
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,1600x720 /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,1600x1040 &>/dev/null
-
-elif [ $res = "4" ]
+	export res="1920x1080"
+elif [ $res = 5 ]
 then
-
-clear
-
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | res = (????x???)      |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   |                       ||       |   | \  |"
-echo "|   |   | x11 start             ||       |   |  \ |"
-echo "|   |   |                       ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |                                    |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
-
-read res
+	echo "Which resolution you want to use? (e.g. 2304x941)"
+	read res
+	if [ -z $res ]
+		then
+		echo "Empty resolution!"
+		. /opt/Scripts/start-fex
+	else
+		clear
+	fi
+elif [ $res = 6 ]
+then
+	. /opt/Scripts/checkconfig
+else
+        echo "Incorrect resolution"
+        . /opt/Scripts/start-fex
+fi
 
 WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,$res /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,$res &>/dev/null
-
-elif [ $res = "0" ]
-then
-
-. /opt/Fex
-
-else
-
-clear
-
-echo "______________________________________________"
-echo "|  ™POMBO                                    |\ "
-echo "|   _____________________________________    | \ "
-echo "|   |   _______________|________   |  - ×|   |  \ "
-echo "|   |   |•___________________- ×|  |     |   |   \ "
-echo "|   |   |                       |  |     |   |    |"
-echo "|   |   | OPCAO INVALIDA        |  |     |   |    |"
-echo "|   |   |                       |__|     |   |\   |"
-echo "|   |   |                       ||       |   | \  |"
-echo "|   |   |                       ||       |   |  \ |"
-echo "|   |   |                       ||       |   |   \|"
-echo "|   |   |_______________________||       |   |    |"
-echo "|   |     '----------------------'       |   |    |"
-echo "|   |                                    |   |    |"
-echo "|   |____________________________________|   |    |"
-echo "|   |____________________________°_°_°___|   |    |"
-echo "|                                            |    |"
-echo "=================================================="
-
-sleep 2
-
-. /opt/Scripts/start-fex
-
-fi
 
 read -p "" sair
 case $sair in
