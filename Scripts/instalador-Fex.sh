@@ -60,11 +60,11 @@ function box_out_failure() {
 }
 
 
-clear
+
 
 box_out_success FEXDROID
 sleep 3
-clear
+
 echo "[SELECT AN OPTION]"
 
 read
@@ -80,11 +80,11 @@ if [ $option = 1 ] || [ $option = 2 ]
 then
 	&>/dev/null
 else
-       clear
+       
        box_out_failure "INVALID OPTION"
        exit
 fi
-clear 
+ 
 termux-setup-storage & &>/dev/null
 
 read
@@ -95,7 +95,7 @@ lines=("STORAGE PERMISSION"
 
 box_out_warning "${lines[@]}"
 wait
-clear 
+ 
 
 read
 lines=("UPDATING PACKAGES"
@@ -108,7 +108,7 @@ box_out_warning "${lines[@]}"
 pkg update -y &
 
 wait
-clear
+
 
 
 read
@@ -120,7 +120,7 @@ lines=("INSTALLING X11-REPO"
 box_out_warning "${lines[@]}"
 pkg install x11-repo -y & &>/dev/null
 wait
-clear
+
 
 read
 lines=("X11-REPO INSTALLED"
@@ -129,7 +129,7 @@ lines=("X11-REPO INSTALLED"
 
 box_out_success "${lines[@]}"
 sleep 2
-clear
+
 
 read
 lines=("INSTALLING PACKAGES"
@@ -151,7 +151,7 @@ then
 fi
 
 wait
-clear
+
 
 read
 lines=("PACKAGES INSTALLED"
@@ -160,7 +160,7 @@ lines=("PACKAGES INSTALLED"
 
 box_out_success "${lines[@]}"
 sleep 1
-clear
+
 
 read
 lines=("INSTALLING TERMUX:X11.DEB"
@@ -175,7 +175,7 @@ dpkg -i termux-x11-nightly-1.03.00-0-all.deb &>/dev/null
 rm -f termux-x11-nightly-1.03.00-0-all.deb
 
 wait
-clear
+
 
 read
 lines=("TERMUX:X11.DEB INSTALLED"
@@ -185,7 +185,7 @@ lines=("TERMUX:X11.DEB INSTALLED"
 box_out_success "${lines[@]}"
 
 sleep 2
-clear
+
 
 read
 lines=("CREATING FEXDROID SYSTEM"
@@ -210,7 +210,7 @@ then
   sleep 1
 
 fi
-clear
+
 
 if [ -d /storage/Fex ]
 then
@@ -239,7 +239,7 @@ else
 
 fi
 
-clear
+
 
 read
 lines=("INSTALLING UBUNTU-ROOTFS"
@@ -290,7 +290,7 @@ fi
 
 sleep 1
 
-clear
+
 
 read
 lines=("UBUNTU-ROOTFS INSTALLED"
@@ -301,7 +301,7 @@ box_out_success "${lines[@]}"
 
 sleep 1
 
-clear
+
 
 read
 lines=("CREATING LAUNCHER"
@@ -317,7 +317,7 @@ mv fex $PREFIX/bin &>/dev/null
 
 sleep 1
 
-clear
+
 
 read
 lines=("DELETING JUNK"
@@ -343,7 +343,7 @@ fi
 
 sleep 2
 
-clear
+
 
 read
 lines=("INSTALLATION FINISHED")
