@@ -195,7 +195,7 @@ then
 fi
 
 
-if [ -d /storage/Fex ]
+if [ -d /sdcard/Fex ]
 then
 
     lines=("FEXDROID FOLDER ALREADY EXISTS"
@@ -208,7 +208,7 @@ then
 
 else
 
-  mkdir /storage/Fex
+  mkdir /sdcard/Fex
 
     lines=("FEXDROID SYSTEM INSTALLED"
          ""
@@ -236,7 +236,7 @@ then
   sudo tar -xJf box64droid-rootfs-beta-chroot.tar.xz -C ~/Fex &>/dev/null
   cd Fex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && sudo chmod +x checkconfig
-  sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && sudo chmod+x Fexconfig
+  sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && sudo chmod +x Fexconfig
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && sudo chmod +x InstallFex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && sudo chmod +x Fex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore && sudo chmod +x FexMore
