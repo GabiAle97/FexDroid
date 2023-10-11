@@ -270,7 +270,6 @@ then
 	wget -q https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs.tar.xz
   proot-distro restore box64droid-rootfs.tar.xz &>/dev/null
   cd /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt
-  rm -f checkconfig start
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && chmod +x Fexconfig
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && chmod +x InstallFex
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && chmod +x Fex
@@ -278,7 +277,7 @@ then
   cd Scripts
   rm -f start-box64
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && chmod +x start-fex
-  rm -f checkconfig
+  rm -f checkconfig start
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
   rm -f changewinever
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
