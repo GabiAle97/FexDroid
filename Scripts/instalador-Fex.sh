@@ -67,7 +67,6 @@ sleep 3
 
 echo "[SELECT AN OPTION]"
 
-read
 lines=("1) FEXDROID ROOT"
        "2) FEXDROID NON-ROOT"
        ""
@@ -87,7 +86,6 @@ fi
  
 termux-setup-storage & &>/dev/null
 
-read
 lines=("STORAGE PERMISSION"
        "PLEASE WAIT"
        ""
@@ -97,7 +95,6 @@ box_out_warning "${lines[@]}"
 wait
  
 
-read
 lines=("UPDATING PACKAGES"
        "PLEASE WAIT"
        ""
@@ -111,7 +108,6 @@ wait
 
 
 
-read
 lines=("INSTALLING X11-REPO"
        "PLEASE WAIT"
        ""
@@ -122,7 +118,6 @@ pkg install x11-repo -y & &>/dev/null
 wait
 
 
-read
 lines=("X11-REPO INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -131,7 +126,6 @@ box_out_success "${lines[@]}"
 sleep 2
 
 
-read
 lines=("INSTALLING PACKAGES"
        "PLEASE WAIT"
        ""
@@ -153,7 +147,6 @@ fi
 wait
 
 
-read
 lines=("PACKAGES INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -162,7 +155,6 @@ box_out_success "${lines[@]}"
 sleep 1
 
 
-read
 lines=("INSTALLING TERMUX:X11.DEB"
        "PLEASE WAIT"
        ""
@@ -177,7 +169,6 @@ rm -f termux-x11-nightly-1.03.00-0-all.deb
 wait
 
 
-read
 lines=("TERMUX:X11.DEB INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -187,7 +178,6 @@ box_out_success "${lines[@]}"
 sleep 2
 
 
-read
 lines=("CREATING FEXDROID SYSTEM"
        "PLEASE WAIT"
        ""
@@ -198,8 +188,7 @@ box_out_warning "${lines[@]}"
 if [ -f $PREFIX/bin/Fex ]
 then
 
-  read
-  lines=("FEXDROID PREFIX ALREADY EXISTS"
+    lines=("FEXDROID PREFIX ALREADY EXISTS"
          ""
          "[CTRL+C] EXIT")
 
@@ -215,8 +204,7 @@ fi
 if [ -d /storage/Fex ]
 then
 
-  read
-  lines=("FEXDROID FOLDER ALREADY EXISTS"
+    lines=("FEXDROID FOLDER ALREADY EXISTS"
          ""
          "[CTRL+C] EXIT")
 
@@ -228,8 +216,7 @@ else
 
   mkdir /storage/Fex
 
-  read
-  lines=("FEXDROID SYSTEM INSTALLED"
+    lines=("FEXDROID SYSTEM INSTALLED"
          ""
          "[CTRL+C] EXIT")
 
@@ -241,7 +228,6 @@ fi
 
 
 
-read
 lines=("INSTALLING UBUNTU-ROOTFS"
        "PLEASE WAIT"
        ""
@@ -292,7 +278,6 @@ sleep 1
 
 
 
-read
 lines=("UBUNTU-ROOTFS INSTALLED"
        ""
        "[CTRL+C] EXIT")
@@ -303,7 +288,6 @@ sleep 1
 
 
 
-read
 lines=("CREATING LAUNCHER"
        "PLEASE WAIT"
        ""
@@ -319,7 +303,6 @@ sleep 1
 
 
 
-read
 lines=("DELETING JUNK"
        "PLEASE WAIT"
        ""
@@ -345,7 +328,6 @@ sleep 2
 
 
 
-read
 lines=("INSTALLATION FINISHED")
 
 box_out_warning "${lines[@]}"
