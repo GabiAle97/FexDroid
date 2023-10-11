@@ -233,7 +233,7 @@ if [ $option = 1 ]
 then
   wget -q https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs-chroot.tar.xz
   sudo mkdir ~/Fex
-  sudo tar -xJf box64droid-rootfs-beta-chroot.tar.xz -C ~/Fex &>/dev/null
+  sudo tar -xJf box64droid-rootfs-chroot.tar.xz -C ~/Fex &>/dev/null
   cd Fex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && sudo chmod +x checkconfig
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && sudo chmod +x Fexconfig
@@ -254,7 +254,7 @@ then
 	mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ &>/dev/null
 	mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu &>/dev/null
 	wget -q https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs.tar.xz
-  proot-distro restore box64droid-rootfs-beta.tar.xz &>/dev/null
+  proot-distro restore box64droid-rootfs.tar.xz &>/dev/null
   cd /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt
   rm -f checkconfig start
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
@@ -309,12 +309,12 @@ rm -rf instalador-Fex.sh &>/dev/null
 if [ $option = 1 ]
 then
 
-  rm box64droid-rootfs-beta-chroot.tar.xz &>/dev/null
+  rm box64droid-rootfs-chroot.tar.xz &>/dev/null
 
 elif [ $option = 2 ]
 then
 
-  rm box64droid-rootfs-beta.tar.xz &>/dev/null
+  rm box64droid-rootfs.tar.xz &>/dev/null
 
 fi
 
