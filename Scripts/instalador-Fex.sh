@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg install ncurses-utils
+pkg install -y ncurses-utils
 
 function box_out_success() {
   local s=("$@") b w
@@ -95,18 +95,18 @@ box_out_warning "${lines[@]}"
 wait
 clear 
 
-pkg update -y &
-
 lines=("UPDATING PACKAGES"
        "PLEASE WAIT"
        ""
        "[CTRL+C] EXIT")
 
 box_out_warning "${lines[@]}"
+
+pkg update -y &
+
 wait
 clear
 
-pkg install x11-repo -y &>/dev/null
 
 lines=("INSTALLING X11-REPO"
        "PLEASE WAIT"
@@ -114,6 +114,7 @@ lines=("INSTALLING X11-REPO"
        "[CTRL+C] EXIT")
 
 box_out_warning "${lines[@]}"
+pkg install x11-repo -y & &>/dev/null
 wait
 clear
 
@@ -124,6 +125,13 @@ lines=("X11-REPO INSTALLED"
 box_out_success "${lines[@]}"
 sleep 2
 clear
+
+lines=("INSTALLING PACKAGES"
+       "PLEASE WAIT"
+       ""
+       "[CTRL+C] EXIT")
+
+box_out_warning "${lines[@]}"
 
 if [ $opcao = 1 ]
 then
@@ -136,13 +144,6 @@ then
 
 fi
 
-
-lines=("INSTALLING PACKAGES"
-       "PLEASE WAIT"
-       ""
-       "[CTRL+C] EXIT")
-
-box_out_warning "${lines[@]}"
 wait
 clear
 
