@@ -19,16 +19,16 @@ clear
 
 if [ $res = 1 ]
 then
-	export res="800x600"
+	export resolution_fex="800x600"
 elif [ $res = 2 ]
 then
-	export res="1024x768"
+	export resolution_fex="1024x768"
 elif [ $res = 3 ]
 then
-	export res="1280x720"
+	export resolution_fex="1280x720"
 elif [ $res = 4 ]
 then
-	export res="1920x1080"
+	export resolution_fex="1920x1080"
 elif [ $res = 5 ]
 then
 	echo "Which resolution you want to use? (e.g. 2304x941)"
@@ -48,9 +48,9 @@ else
         . /opt/Scripts/start-fex
 fi
 
-box_out_success "SELECTED RESOLUTION: $res"
+box_out_success "SELECTED RESOLUTION: $resolution_fex"
 
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,$res /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,$res &>/dev/null
+WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,$resolution_fex /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,$res &>/dev/null
 
 read -p "" sair
 case $sair in
