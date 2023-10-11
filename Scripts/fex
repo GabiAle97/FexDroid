@@ -61,7 +61,6 @@ lines=("FexDroid By EmuTesting"
        ""
        "1) Start Fex"
        "2) Uninstall Fex"
-       "3) Reinstall Fex"
        "0) Disconnect"
        ""
        "[CTRL+C] EXIT")
@@ -167,10 +166,12 @@ then
                 proot-distro remove ubuntu &>/dev/null
                 rm $PREFIX/bin/fex
         fi
+fi
+
 
 if [ $option = 0 ]
 then
 
-exit 
+        exit 
 
 fi

@@ -345,4 +345,4 @@ lines=("INSTALLATION FINISHED")
 
 box_out_warning "${lines[@]}"
 
-./fex
+fex
