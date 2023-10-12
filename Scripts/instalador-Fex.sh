@@ -206,6 +206,7 @@ then
 
 else
 
+clear 
 lines=("CREATED FEXDROID PREFIX"
          ""
          "[CTRL+C] EXIT")
