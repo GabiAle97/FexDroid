@@ -57,6 +57,8 @@ function box_out_failure() {
   tput sgr 0
 }
 
+clear
+
 lines=("FexDroid By EmuTesting"
        ""
        "1) Start Fex"
