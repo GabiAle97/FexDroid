@@ -1,5 +1,62 @@
 #!/bin/bash
 
+function box_out_success() {
+  local s=("$@") b w
+
+  for l in "${s[@]}"; do
+    ((w<${#l})) && { b="$l"; w="${#l}"; }
+  done
+
+  tput setaf 2
+  echo " -${b//?/-}-"
+  echo "| ${b//?/ } |"
+  for l in "${s[@]}"; do
+    printf '| %s%*s%s |\n' "$(tput setaf 2)" "-$w" "$l" "$(tput setaf 2)"
+  done
+
+  echo "| ${b//?/ } |"
+  echo " -${b//?/-}-"
+  tput sgr 0
+}
+
+function box_out_warning() {
+  local s=("$@") b w
+
+  for l in "${s[@]}"; do
+    ((w<${#l})) && { b="$l"; w="${#l}"; }
+  done
+
+  tput setaf 3
+  echo " -${b//?/-}-"
+  echo "| ${b//?/ } |"
+  for l in "${s[@]}"; do
+    printf '| %s%*s%s |\n' "$(tput setaf 3)" "-$w" "$l" "$(tput setaf 3)"
+  done
+
+  echo "| ${b//?/ } |"
+  echo " -${b//?/-}-"
+  tput sgr 0
+}
+
+function box_out_failure() {
+  local s=("$@") b w
+
+  for l in "${s[@]}"; do
+    ((w<${#l})) && { b="$l"; w="${#l}"; }
+  done
+
+  tput setaf 1
+  echo " -${b//?/-}-"
+  echo "| ${b//?/ } |"
+  for l in "${s[@]}"; do
+    printf '| %s%*s%s |\n' "$(tput setaf 1)" "-$w" "$l" "$(tput setaf 1)"
+  done
+
+  echo "| ${b//?/ } |"
+  echo " -${b//?/-}-"
+  tput sgr 0
+}
+
 clear
 
 lines=("Select need resoultion:"
@@ -31,11 +88,13 @@ then
 	export resolution_fex="1920x1080"
 elif [ $res = 5 ]
 then
-	echo "Which resolution you want to use? (e.g. 2304x941)"
+	clear
+	box_out_warning "Which resolution you want to use? (e.g. 2304x941)"
 	read res
 	if [ -z $res ]
 		then
-		echo "Empty resolution!"
+		clear
+		box_out_failure "Empty resolution!"
 		. /opt/Scripts/start-fex
 	else
 		clear
@@ -44,16 +103,27 @@ elif [ $res = 6 ]
 then
 	. /opt/Scripts/checkconfig
 else
-        echo "Incorrect resolution"
+        clear
+		box_out_failure "Incorrect resolution"
         . /opt/Scripts/start-fex
 fi
 
+clear
 box_out_success "SELECTED RESOLUTION: $resolution_fex"
 
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,$resolution_fex /opt/TFM & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,$resolution_fex
+WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,$resolution_fex /opt/TFM & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,$resolution_fex &>/dev/null
+
+lines=("RUNNING FEXDROID"
+	   "OPEN TERMUX-X11 AND ENJOY!"
+	   ""
+       "WRITE \"1\" AND PRESS \"ENTER\" TO EXIT")
+
+clear
+box_out_success "${lines[@]}"
 
 read -p "" sair
 case $sair in
         [1]* ) echo "";box64 wineserver -k &>/dev/null;echo"";echo "";echo "";exit
+		. /opt/Fexconfig
 esac
  

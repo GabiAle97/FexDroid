@@ -113,16 +113,21 @@ then
 	then
 		export ver=8.17
 	else
-		box_out_failure "Incorrect Wine version"
+		clear
+                box_out_failure "Incorrect Wine version"
 		. /opt/Scripts/changewinever
 	fi
+        clear
         box_out_warning "Removing current Wine..."
         rm -r wine
-       	box_out_warning "Removing current Wine prefix..."
+       	clear
+        box_out_warning "Removing current Wine prefix..."
 	rm -r ~/.wine
+        clear
         box_out_warning "Downloading and unpacking Wine Stable $ver..."
         wget https://github.com/Kron4ek/Wine-Builds/releases/download/$ver/wine-$ver-amd64.tar.xz -q
         tar -xf wine-$ver-amd64.tar.xz
+        clear
         box_out_warning "Removing unpacked archive..."
         rm wine-$ver-amd64.tar.xz
         mv wine-$ver-amd64 wine
@@ -167,16 +172,21 @@ then
 	then
 		export ver=8.17
 	else
+                clear
                 box_out_failure "Incorrect Wine version"
                 . /opt/Scripts/changewinever
         fi
+        clear
         box_out_warning "Removing current Wine..."
         rm -r wine
+        clear
         box_out_warning "Removing current Wine prefix..."
         rm -r ~/.wine
+        clear
         box_out_warning "Downloading and unpacking Wine Staging $ver..."
         wget https://github.com/Kron4ek/Wine-Builds/releases/download/$ver/wine-$ver-staging-amd64.tar.xz -q
         tar -xf wine-$ver-staging-amd64.tar.xz
+        clear
         box_out_warning "Removing unpacked archive..."
         rm wine-$ver-staging-amd64.tar.xz
         mv wine-$ver-staging-amd64 wine
@@ -221,21 +231,27 @@ then
 	then
 		export ver=8.17
         else
+                clear
                 box_out_failure "Incorrect Wine version"
                 . /opt/Scripts/changewinever
         fi
+        clear
         box_out_warning "Removing current Wine..."
         rm -r wine
+        clear
         box_out_warning "Removing current Wine prefix..."
         rm -r ~/.wine
+        clear
         box_out_warning "Downloading and unpacking Wine Staging-tkg $ver..."
         wget https://github.com/Kron4ek/Wine-Builds/releases/download/$ver/wine-$ver-staging-tkg-amd64.tar.xz -q
         tar -xf wine-$ver-staging-tkg-amd64.tar.xz
+        clear
         box_out_warning "Removing unpacked archive..."
         rm wine-$ver-staging-tkg-amd64.tar.xz
         mv wine-$ver-staging-tkg-amd64 wine
 elif [ $build = 4 ]
 then
+        clear
         lines=("Select Proton version:"
                "1) 8.0-3"
                "2) Experimental 8.0"
@@ -254,16 +270,21 @@ then
         then
                 export ver="8.0-4"
         else
+                clear
                 box_out_failure "Incorrect Proton version"
                 . /opt/Scripts/changewinever
         fi
-	box_out_warning "Removing current Wine..."
+	clear
+        box_out_warning "Removing current Wine..."
 	rm -r wine
-	box_out_warning "Removing current Wine prefix..."
+	clear
+        box_out_warning "Removing current Wine prefix..."
         rm -r ~/.wine
+        clear
         box_out_warning "Downloading and unpacking Proton $ver..."
         wget https://github.com/Kron4ek/Wine-Builds/releases/download/proton-$ver/wine-proton-$ver-amd64.tar.xz -q
         tar -xf wine-proton-$ver-amd64.tar.xz
+        clear
         box_out_warning "Removing unpacked archive..."
         rm wine-proton-$ver-amd64.tar.xz
         mv wine-proton-$ver-amd64 wine
@@ -296,16 +317,21 @@ then
         then
 		export ver=8-17
 	else
+                clear
                 box_out_failure "Incorrect Wine-ge version"
                 . /opt/Scripts/changewinever
         fi
-	box_out_warning "Removing current Wine..."
+	clear
+        box_out_warning "Removing current Wine..."
         rm -r wine
+        clear
         box_out_warning "Removing current Wine prefix..."
         rm -r ~/.wine
-	box_out_warning "Downloading and unpacking Wine GE $ver..."
+	clear
+        box_out_warning "Downloading and unpacking Wine GE $ver..."
 	wget https://github.com/GloriousEggroll/wine-ge-custom/releases/download/GE-Proton$ver/wine-lutris-GE-Proton$ver-x86_64.tar.xz -q
 	tar -xf wine-lutris-GE-Proton$ver-x86_64.tar.xz
+        clear
         box_out_warning "Removing unpacked archive..."
         rm wine-lutris-GE-Proton$ver-x86_64.tar.xz
         mv lutris-GE-Proton$ver-x86_64 wine
@@ -313,25 +339,34 @@ elif [ $build = 6 ]
 then
         . /opt/Scripts/checkconfig
 else
+        clear
         box_out_failure "Incorrect Wine version"
         clear
         . /opt/Scripts/changewinever
 fi
+clear
 box_out_warning "Creating new Wine prefix..."
 WINEDLLOVERRIDES=mscoree=d box64 wineboot &>/dev/null
+clear
 box_out_warning "Installing DXVK 2.2, D8VK 1.0, vkd3d-proton 2.10..."
 box64 wine64 z:/opt/Resources64/DXVK2.2/DXVK2.2.bat &>/dev/null
+clear
 box_out_success "Done installing DXVK2.2"
 cp /opt/Resources/D8VK1.0/d3d8.dll /root/.wine/drive_c/windows/syswow64/
+clear
 box_out_success "Copied D8VK 1.0"
 cp /opt/Resources/vkd3d-proton2.10/d3d12*.dll /root/.wine/drive_c/windows/syswow64/
+clear
 box_out_success "Copied VKD3D 2.10 x64"
 cp /opt/Resources64/vkd3d-proton2.10/d3d12*.dll /root/.wine/drive_c/windows/system32/
+clear
 box_out_success "Copied VKD3D 2.10 x86"
 box64 wine64 z:/opt/Resources64/OverrideDlls.bat &>/dev/null
+clear
 box_out_warning "Copying shortucts..."
 cp -r /opt/Shortcuts/* "/root/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu"
 ln -s /sdcard/Download /root/.wine/dosdevices/d:
+clear
 box_out_success "Wine version changed, back to start menu..."
 . /opt/Scripts/checkconfig
 
