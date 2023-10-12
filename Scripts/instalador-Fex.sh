@@ -294,6 +294,8 @@ then
   proot-distro restore box64droid-rootfs.tar.xz &>/dev/null
 fi
 
+clear
+
 lines=("FINISHED INSTALLING UBUNTU-ROOTFS"
        ""
        "[CTRL+C] EXIT")
