@@ -2,7 +2,6 @@
 
 if [ -e /opt/FexMoreNew ]
 then
-  read -p "Apply update"
   rm -f /opt/FexMore
   mv /opt/FexMoreNew /opt/FexMore
 fi
