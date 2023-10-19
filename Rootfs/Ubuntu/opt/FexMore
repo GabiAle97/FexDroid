@@ -200,7 +200,7 @@ then
   mkdir GStreamer
   git clone --recurse-submodules https://gitlab.freedesktop.org/gstreamer/gstreamer.git GStreamer
   cd GStreamer
-  wget -q http://launchpadlibrarian.net/621648956/meson_0.63.2-1_all.deb -O meson.deb
+  wget -q http://launchpadlibrarian.net/653152622/meson_1.0.1-1_all.deb -O meson.deb
   dpkg -i meson.deb
   meson setup builddir
   meson compile -C builddir
