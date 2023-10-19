@@ -62,11 +62,10 @@ lines=("1) Recreate Wine Prefix"
        "2) Change Wine ver"
        "3) About"
        "4) Update FexDroid Scripts"
-	   ""
-	   "8) Back"
+	     ""
+	     "8) Back"
        "0) Disconnect"
-       ""
-       "[CTRL+C] EXIT")
+       )
 
 box_out_warning "${lines[@]}"
 
@@ -201,6 +200,13 @@ then
 clear
 
 . /opt/Fex
+
+elif [ $option = "0" ]
+then
+clear
+exit
+clear
+exit
 
 else
 

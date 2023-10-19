@@ -66,8 +66,7 @@ lines=("Select need resoultion:"
        "4) 1920x1080 (16:9)"
        "5) Custom resolution"
        "6) Back to previous menu"
-       ""
-       "[CTRL+C] EXIT")
+       "")
 
 box_out_warning "${lines[@]}"
 

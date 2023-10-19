@@ -66,8 +66,7 @@ lines=("This script will change Wine version"
         "3) Staging-tkg"
         "4) Proton"
         "5) Wine GE"
-        "6) Back to previous menu"
-       "[CTRL+C] EXIT")
+        "6) Back to previous menu")
 
 box_out_warning "${lines[@]}"
 read build
@@ -83,8 +82,7 @@ then
                "5) 8.13"
                "6) 8.15 (not working on Adreno 7xx/610)"
                "7) 8.16"
-               "8) 8.17"
-        "[CTRL+C] EXIT")
+               "8) 8.17")
 
         box_out_warning "${lines[@]}"
         read ver
@@ -142,8 +140,7 @@ then
                "5) 8.13"
                "6) 8.15 (not working on Adreno 7xx/610)"
                "7) 8.16"
-               "8) 8.17"
-        "[CTRL+C] EXIT")
+               "8) 8.17")
 
         box_out_warning "${lines[@]}"
         read ver
@@ -201,8 +198,7 @@ then
                "5) 8.13"
                "6) 8.15 (not working on Adreno 7xx/610)"
                "7) 8.16"
-               "8) 8.17"
-        "[CTRL+C] EXIT")
+               "8) 8.17")
 
         box_out_warning "${lines[@]}"
         read ver
@@ -255,8 +251,7 @@ then
         lines=("Select Proton version:"
                "1) 8.0-3"
                "2) Experimental 8.0"
-               "3) 8.0-4"
-        "[CTRL+C] EXIT")
+               "3) 8.0-4")
 
         box_out_warning "${lines[@]}"
         read ver
@@ -296,8 +291,7 @@ then
                "2) 8-14"
                "3) 8-15"
                "4) 8-16 (Not working, waiting for Box86 update)"
-               "5) 8-17 (Not working, waiting for Box86 update)"
-        "[CTRL+C] EXIT")
+               "5) 8-17 (Not working, waiting for Box86 update)")
 
         box_out_warning "${lines[@]}"
         read ver

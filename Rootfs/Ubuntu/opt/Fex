@@ -71,8 +71,8 @@ lines=("FexDroid By EmuTesting"
        "1) Start Fex"
        "2) Config Fex"
        "3) Run Winetricks"
-	   ""
-	   "8) More options"
+	     ""
+	     "8) More options"
        "0) Disconnect"
        ""
        "[CTRL+C] Terminal Mode")
@@ -108,8 +108,7 @@ then
 
 clear
 
-FEXInterpreter /opt/wine/bin/wine64 winetricks
-read
+box64 winetricks
 
 . /opt/Fex
 
@@ -128,6 +127,7 @@ clear
 sleep 2
 
 exit
+clear
 exit
 
 else

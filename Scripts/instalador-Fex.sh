@@ -316,14 +316,15 @@ box_out_warning "${lines[@]}"
 if [ $option = 1 ]
 then
   cd Fex
-  sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && sudo chmod +x checkconfig
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && sudo chmod +x Fexconfig
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && sudo chmod +x InstallFex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && sudo chmod +x Fex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore && sudo chmod +x FexMore
-  sudo mv FexMore InstallFex Fex checkconfig Fexconfig /data/data/com.termux/files/home/Fex/opt
+  sudo mv FexMore InstallFex Fex Fexconfig /data/data/com.termux/files/home/Fex/opt
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && sudo chmod +x start-fex
-  sudo mv start-fex /data/data/com.termux/files/home/Fex/opt/Scripts
+  sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && sudo chmod +x checkconfig
+  sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && sudo chmod +x changewinever
+  sudo mv start-fex checkconfig changewinever /data/data/com.termux/files/home/Fex/opt/Scripts
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/start
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/Box64Droid.conf
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/Scripts/start-box64
