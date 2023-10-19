@@ -61,7 +61,7 @@ clear
 lines=("1) Recreate Wine Prefix"
        "2) Change Wine ver"
        "3) About"
-       "4) Update FexDroid"
+       "4) Update FexDroid Scripts"
 	   ""
 	   "8) Back"
        "0) Disconnect"
