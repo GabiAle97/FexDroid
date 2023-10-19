@@ -190,7 +190,6 @@ then
     cd $HOME
 
   else
-  then
     cd /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt
     rm -f Fexconfig
     rm -f InstallFex
