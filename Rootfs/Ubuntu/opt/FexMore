@@ -206,7 +206,7 @@ then
   meson compile -C builddir
   meson subprojects update
   meson install -C builddir
-
+  read
   . /opt/Fex
 
 elif [ $option = "8" ]
