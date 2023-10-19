@@ -179,17 +179,17 @@ then
   rm -f Fexconfig
   rm -f InstallFex
   rm -f Fex
-  curl https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig --output Fexconfig && chmod +x Fexconfig
-  curl https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex --output InstallFex && chmod +x InstallFex
-  curl https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex --output Fex && chmod +x Fex
-  curl https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore --output FexMoreNew && chmod +x FexMoreNew
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && chmod +x Fexconfig
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && chmod +x InstallFex
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && chmod +x Fex
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore -O FexMoreNew && chmod +x FexMoreNew
   cd Scripts
   rm -f start-box64
-  curl https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex --output start-fex && chmod +x start-fex
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && chmod +x start-fex
   rm -f checkconfig start
-  curl https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig --output checkconfig && chmod +x checkconfig
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
   rm -f changewinever
-  curl https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever --output changewinever && chmod +x changewinever
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
   fi
   box_out_success "Update Completed"
   sleep 2
