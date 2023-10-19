@@ -328,6 +328,7 @@ then
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/Box64Droid.conf
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/Scripts/start-box64
   cd $HOME
+  touch /data/data/com.termux/files/home/Fex/opt/FexRootMode
 
 elif [ $option = 2 ]
 then
@@ -344,6 +345,7 @@ then
   rm -f changewinever
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
   cd $HOME
+  touch /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt/FexNoRootMode
 fi
 
 sleep 1

@@ -61,6 +61,7 @@ clear
 lines=("1) Recreate Wine Prefix"
        "2) Change Wine ver"
        "3) About"
+       "4) Update FexDroid"
 	   ""
 	   "8) Back"
        "0) Disconnect"
@@ -133,7 +134,7 @@ then
 clear
 
 . /opt/Scripts/changewinever
-. /opt/start
+. /opt/FexMore
 
 elif [ $option = "3" ]
 then
@@ -151,6 +152,10 @@ lines=("FEXDROID BY EMUTESTING"
        "Everyone who support my channel and make shotouts to it"
        "And YOU for using it!"
        ""
+       "If you wanna help my projects, you can go to"
+       "patreon.com/EmuTesting"
+       "and become a Patreon!"
+       ""
        "Sincerely. GabiAle97"
        "")
 
@@ -160,6 +165,52 @@ read -p "Press any key to continue: "
 
 . /opt/FexMore
 
+elif [ $option = "4" ]
+then
+  lines=("Updating FexDroid"
+         ""
+         "Please Wait"
+         "")
+
+  box_out_warning "${lines[@]}"
+  if [ -e /opt/FexRootMode ]
+  then
+    cd Fex
+    sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && sudo chmod +x checkconfig
+    sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && sudo chmod +x Fexconfig
+    sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && sudo chmod +x InstallFex
+    sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && sudo chmod +x Fex
+    sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore && sudo chmod +x FexMore
+    sudo mv FexMore InstallFex Fex checkconfig Fexconfig /data/data/com.termux/files/home/Fex/opt
+    sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && sudo chmod +x start-fex
+    sudo mv start-fex /data/data/com.termux/files/home/Fex/opt/Scripts
+    sudo rm -f /data/data/com.termux/files/home/Fex/opt/start
+    sudo rm -f /data/data/com.termux/files/home/Fex/opt/Box64Droid.conf
+    sudo rm -f /data/data/com.termux/files/home/Fex/opt/Scripts/start-box64
+    cd $HOME
+
+  else
+  then
+    cd /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt
+    rm -f Fexconfig
+    rm -f InstallFex
+    rm -f Fex
+    wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fexconfig && chmod +x Fexconfig
+    wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/InstallFex && chmod +x InstallFex
+    wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && chmod +x Fex
+    wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore -O FexMoreNew && chmod +x FexMoreNew
+    cd Scripts
+    rm -f start-box64
+    wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && chmod +x start-fex
+    rm -f checkconfig start
+    wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
+    rm -f changewinever
+    wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
+    cd $HOME
+  fi
+  box_out_success "Update Completed"
+  sleep 2
+  . /opt/Fex
 elif [ $option = "8" ]
 then
 

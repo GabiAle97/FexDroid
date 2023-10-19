@@ -123,7 +123,6 @@ box_out_success "${lines[@]}"
 
 read -p "" sair
 case $sair in
-        [1]* ) echo "";box64 wineserver -k &>/dev/null;echo"";echo "";echo "";exit
-		. /opt/Fexconfig
+        [1]* ) echo "";box64 wineserver -k &>/dev/null;echo"";echo "";echo "";. /opt/Fexconfig
 esac
  

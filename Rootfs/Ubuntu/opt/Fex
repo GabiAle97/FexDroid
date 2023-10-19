@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -e /opt/FexMoreNew ]
+then
+  rm -f /opt/FexMore
+  mv /opt/FexMoreNew /opt/FexMore
+fi
+
 function box_out_success() {
   local s=("$@") b w
 
