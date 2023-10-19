@@ -90,6 +90,15 @@ then
 
 clear
 
+lines=("FEXConfig Started"
+       "Open Termux-x11 to manipulate config"
+       "Use File->Save option for saving the config made"
+       ""
+       "Waiting for FEXConfig to close (File->Quit)"
+)
+
+box_out_success "${lines[@]}"
+
 FEXConfig
 
 . /opt/Fex

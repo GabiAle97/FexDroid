@@ -169,6 +169,7 @@ read -p "Press any key to continue: "
 
 elif [ $option = "4" ]
 then
+  clear
   lines=("Updating FexDroid"
          ""
          "Please Wait"
@@ -190,6 +191,7 @@ then
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
   rm -f changewinever
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
+  clear
   box_out_success "Update Completed"
   sleep 2
   . /opt/Fex
