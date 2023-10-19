@@ -62,7 +62,6 @@ lines=("1) Recreate Wine Prefix"
        "2) Change Wine ver"
        "3) About"
        "4) Update FexDroid Scripts"
-       "5) Enable performance tricks"
 	     ""
 	     "8) Back"
        "0) Disconnect"
@@ -193,27 +192,6 @@ then
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
   clear
   box_out_success "Update Completed"
-  sleep 2
-  . /opt/Fex
-
-elif [ $option = "5" ]
-then
-  export BOX86_DYNAREC_FASTPAGE=0
-  export BOX64_DYNAREC_FASTPAGE=0
-  export BOX86_DYNAREC_FASTNAN=1
-  export BOX64_DYNAREC_FASTNAN=1
-  export BOX86_DYNAREC_FASTROUND=1
-  export BOX64_DYNAREC_FASTROUND=1
-  export BOX86_DYNAREC_X87DOUBLE=0
-  export BOX64_DYNAREC_X87DOUBLE=0
-  export BOX86_DYNAREC_SAFEFLAGS=0
-  export BOX64_DYNAREC_SAFEFLAGS=0
-  export BOX86_DYNAREC_WAIT=
-  export BOX64_DYNAREC_WAIT=
-  export BOX86_DYNAREC_STRONGMEM=
-  export BOX64_DYNAREC_STRONGMEM=
-  export BOX64MOD_SELECTED_CONFIG=4
-  box_out_success "Successfuly applied tricks"
   sleep 2
   . /opt/Fex
 elif [ $option = "8" ]
