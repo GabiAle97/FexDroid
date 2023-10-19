@@ -75,7 +75,7 @@ lines=("FexDroid By EmuTesting"
 	   "8) More options"
        "0) Disconnect"
        ""
-       "[CTRL+C] EXIT")
+       "[CTRL+C] Terminal Mode")
 
 box_out_warning "${lines[@]}"
 
