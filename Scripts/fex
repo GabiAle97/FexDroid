@@ -71,7 +71,7 @@ box_out_warning "${lines[@]}"
 
 read option
 
-if [ $option = 0 ] || [ $option = 1 ] || [ $option = 2 ] || [ $option = 3 ]
+if [ $option = "0" ] || [ $option = "1" ] || [ $option = "2" ] || [ $option = "3" ]
 
 then
 
@@ -79,11 +79,11 @@ then
 
 else
 
-./fex
+fex
 
 fi
 
-if [ $option = 1 ]
+if [ $option = "1" ]
 then
 
 clear 
@@ -157,7 +157,7 @@ clear
 
     fi
 
-elif [ $option = 2 ]
+elif [ $option = "2" ]
 then
 
         if [ -d ~/Fex ]
@@ -169,7 +169,7 @@ then
                 rm $PREFIX/bin/fex
         fi
 
-elif [ $opcao = 3 ]
+elif [ $opcao = "3" ]
 then
 
 clear
@@ -177,7 +177,7 @@ clear
 fi
 
 
-if [ $option = 0 ]
+if [ $option = "0" ]
 then
 
         exit 

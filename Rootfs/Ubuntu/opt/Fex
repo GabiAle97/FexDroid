@@ -100,6 +100,7 @@ then
 clear
 
 FEXInterpreter /opt/wine/bin/wine64 winetricks
+read
 
 . /opt/Fex
 
@@ -117,6 +118,7 @@ clear
 
 sleep 2
 
+exit
 exit
 
 else
