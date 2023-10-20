@@ -185,19 +185,20 @@ then
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/Fex && chmod +x Fex
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/FexMore -O FexMoreNew && chmod +x FexMoreNew
   cd Scripts
-  rm -f start-box64
+  rm -f start-fex
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && chmod +x start-fex
   rm -f checkconfig start
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
   rm -f changewinever
   wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
+  rm -f gstreamer-installer
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/gstreamer-installer && chmod +x gstreamer-installer
   clear
   box_out_success "Update Completed"
   sleep 2
   . /opt/Fex
 elif [ $option = "5" ]
 then
-  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/gstreamer-installer && chmod +x gstreamer-installer
   . /opt/gstreamer-installer
   . /opt/Fex
 

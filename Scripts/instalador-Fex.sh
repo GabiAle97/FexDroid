@@ -324,12 +324,12 @@ then
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/start-fex && sudo chmod +x start-fex
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && sudo chmod +x checkconfig
   sudo wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && sudo chmod +x changewinever
-  sudo mv start-fex checkconfig changewinever /data/data/com.termux/files/home/Fex/opt/Scripts
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/gstreamer-installer && chmod +x gstreamer-installer
+  sudo mv start-fex checkconfig changewinever gstreamer-installer /data/data/com.termux/files/home/Fex/opt/Scripts
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/start
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/Box64Droid.conf
   sudo rm -f /data/data/com.termux/files/home/Fex/opt/Scripts/start-box64
   cd $HOME
-  touch /data/data/com.termux/files/home/Fex/opt/FexRootMode
 
 elif [ $option = 2 ]
 then
@@ -345,8 +345,8 @@ then
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/checkconfig && chmod +x checkconfig
   rm -f changewinever
   wget -q https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/changewinever && chmod +x changewinever
+  wget -q --no-cache https://raw.githubusercontent.com/GabiAle97/FexDroid/main/Rootfs/Ubuntu/opt/gstreamer-installer && chmod +x gstreamer-installer
   cd $HOME
-  touch /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/opt/FexNoRootMode
 fi
 
 sleep 1
