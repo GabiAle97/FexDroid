@@ -61,180 +61,142 @@ if [ -e /opt/newmeson ]
 then
     wget -q http://launchpadlibrarian.net/683244912/meson_1.2.1-3_all.deb -O meson.deb
     dpkg -i meson.deb
+    apt install -y libglib2.0-dev 
+    apt install -y ffmpeg libavfilter-dev
     touch /opt/newmeson
 fi
 
 clear
 
-lines=("Select libraries to install: "
-       ""
-       "1) gstreamer"
-       "2) gst-plugins-base"
-       "3) gst-libav"
-       "4) gst-plugins-good"
-       "5) gst-plugins-bad"
-       "6) gst-plugins-ugly"
-       "")
 
-box_out_success "${lines[@]}"
-read libselect
+box_out_warning "Installing gstreamer 1.22.6"
 
-if [ $libselect = "1" ]
-then
 
-    box_out_warning "Installing gstreamer 1.22.6"
+mkdir gstreamer
+wget -q https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.22.6.tar.xz -O gstreamer.tar.xz 
+tar -xJf gstreamer.tar.xz -C ./gstreamer 
+rm gstreamer.tar.xz
+cd gstreamer
+cd $(ls)
+mkdir build &&
+cd    build &&
 
-    apt install -y libglib2.0-dev 
-    mkdir gstreamer
-    wget -q https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.22.6.tar.xz -O gstreamer.tar.xz 
-    tar -xJf gstreamer.tar.xz -C ./gstreamer 
-    rm gstreamer.tar.xz
-    cd gstreamer
-    cd $(ls)
-    mkdir build &&
-    cd    build &&
+meson  setup ..            \
+    --prefix=/usr       \
+    --buildtype=release \
+    -Dgst_debug=false   \
+    -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+    -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+ninja
+ninja install
+cd /opt
+read
+clear
 
-    meson  setup ..            \
-        --prefix=/usr       \
-        --buildtype=release \
-        -Dgst_debug=false   \
-        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-        -Dpackage-name="GStreamer 1.22.6 BLFS" &&
-    ninja
-    ninja install
-    cd /opt
-    read
-    clear
-fi
+box_out_warning "Installing gst-plugins-base 1.22.6"
+mkdir gst-plugins-base
+wget -q https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.22.6.tar.xz -O gst-plugins-base.tar.xz 
+tar -xJf gst-plugins-base.tar.xz -C ./gst-plugins-base 
+rm gst-plugins-base.tar.xz
+cd gst-plugins-base
+cd $(ls)
+mkdir build &&
+cd    build &&
 
-if [ $libselect = "2" ]
-then
-    box_out_warning "Installing gst-plugins-base 1.22.6"
-    mkdir gst-plugins-base
-    wget -q https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.22.6.tar.xz -O gst-plugins-base.tar.xz 
-    tar -xJf gst-plugins-base.tar.xz -C ./gst-plugins-base 
-    rm gst-plugins-base.tar.xz
-    cd gst-plugins-base
-    cd $(ls)
-    mkdir build &&
-    cd    build &&
+meson  setup ..               \
+    --prefix=/usr          \
+    --buildtype=release    \
+    --wrap-mode=nodownload \
+    -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+    -Dpackage-name="GStreamer 1.22.6 BLFS"    &&
+ninja
+ninja install
+cd /opt
+read
+clear
 
-    meson  setup ..               \
-        --prefix=/usr          \
-        --buildtype=release    \
-        --wrap-mode=nodownload \
-        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-        -Dpackage-name="GStreamer 1.22.6 BLFS"    &&
-    ninja
-    ninja install
-    cd /opt
-    read
-    clear
-fi
+box_out_warning "Installing gst-plugins-good-1.22.6"
+mkdir gst-plugins-good-1.22.6
+wget -q https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.22.6.tar.xz
+tar -xJf gst-plugins-good-1.22.6.tar.xz -C ./gst-plugins-good-1.22.6
+rm gst-plugins-good-1.22.6.tar.xz
+cd gst-plugins-good-1.22.6
+cd $(ls)
+mkdir build &&
+cd    build &&
 
-if [ $libselect = "3" ]
-then
-    apt install -y ffmpeg libavfilter-dev
-    box_out_warning "Installing gst-libav-1.22.6"
-    mkdir gst-libav-1.22.6
-    wget -q https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.6.tar.xz
-    tar -xJf gst-libav-1.22.6.tar.xz -C ./gst-libav-1.22.6
-    rm gst-libav-1.22.6.tar.xz
-    cd gst-libav-1.22.6
-    cd $(ls)
-    mkdir build &&
-    cd    build &&
+meson setup ..            \
+    --prefix=/usr       \
+    --buildtype=release \
+    -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+    -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+ninja
+ninja install
+cd /opt
+read
+clear
 
-    meson  setup ..            \
-        --prefix=/usr       \
-        --buildtype=release \
-        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-        -Dpackage-name="GStreamer 1.22.6 BLFS" &&
-    ninja
-    ninja install
-    cd /opt
-    read
-    clear
-fi
+box_out_warning "Installing gst-plugins-bad-1.22.6"
+mkdir gst-plugins-bad-1.22.6
+wget -q https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.22.6.tar.xz
+tar -xJf gst-plugins-bad-1.22.6.tar.xz -C ./gst-plugins-bad-1.22.6
+rm gst-plugins-bad-1.22.6.tar.xz
+cd gst-plugins-bad-1.22.6
+cd $(ls)
+mkdir build &&
+cd    build &&
 
-if [ $libselect = "4" ]
-then
-    box_out_warning "Installing gst-plugins-good-1.22.6"
-    mkdir gst-plugins-good-1.22.6
-    wget -q https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.22.6.tar.xz
-    tar -xJf gst-plugins-good-1.22.6.tar.xz -C ./gst-plugins-good-1.22.6
-    rm gst-plugins-good-1.22.6.tar.xz
-    cd gst-plugins-good-1.22.6
-    cd $(ls)
-    mkdir build &&
-    cd    build &&
+meson  setup ..            \
+    --prefix=/usr       \
+    --buildtype=release \
+    -Dgpl=enabled       \
+    -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+    -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+ninja
+ninja install
+cd /opt
+read
+clear
 
-    meson setup ..            \
-        --prefix=/usr       \
-        --buildtype=release \
-        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-        -Dpackage-name="GStreamer 1.22.6 BLFS" &&
-    ninja
-    ninja install
-    cd /opt
-    read
-    clear
-fi
+box_out_warning "Installing gst-plugins-ugly-1.22.6"
+mkdir gst-plugins-ugly-1.22.6
+wget -q https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.22.6.tar.xz
+tar -xJf gst-plugins-ugly-1.22.6.tar.xz -C ./gst-plugins-ugly-1.22.6
+rm gst-plugins-ugly-1.22.6.tar.xz
+cd gst-plugins-ugly-1.22.6
+cd $(ls)
+mkdir build &&
+cd    build &&
 
-if [ $libselect = "5" ]
-then
-    box_out_warning "Installing gst-plugins-bad-1.22.6"
-    mkdir gst-plugins-bad-1.22.6
-    wget -q https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.22.6.tar.xz
-    tar -xJf gst-plugins-bad-1.22.6.tar.xz -C ./gst-plugins-bad-1.22.6
-    rm gst-plugins-bad-1.22.6.tar.xz
-    cd gst-plugins-bad-1.22.6
-    cd $(ls)
-    mkdir build &&
-    cd    build &&
+meson  setup ..            \
+    --prefix=/usr       \
+    --buildtype=release \
+    -Dgpl=enabled       \
+    -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+    -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+ninja
+ninja install
+cd /opt
+read
+clear
 
-    meson  setup ..            \
-        --prefix=/usr       \
-        --buildtype=release \
-        -Dgpl=enabled       \
-        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-        -Dpackage-name="GStreamer 1.22.6 BLFS" &&
-    ninja
-    ninja install
-    cd /opt
-    read
-    clear
-fi
+box_out_warning "Installing gst-libav-1.22.6"
+mkdir gst-libav-1.22.6
+wget -q https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.6.tar.xz
+tar -xJf gst-libav-1.22.6.tar.xz -C ./gst-libav-1.22.6
+rm gst-libav-1.22.6.tar.xz
+cd gst-libav-1.22.6
+cd $(ls)
+mkdir build &&
+cd    build &&
 
-if [ $libselect = "6" ]
-then
-    box_out_warning "Installing gst-plugins-ugly-1.22.6"
-    mkdir gst-plugins-ugly-1.22.6
-    wget -q https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.22.6.tar.xz
-    tar -xJf gst-plugins-ugly-1.22.6.tar.xz -C ./gst-plugins-ugly-1.22.6
-    rm gst-plugins-ugly-1.22.6.tar.xz
-    cd gst-plugins-ugly-1.22.6
-    cd $(ls)
-    mkdir build &&
-    cd    build &&
-
-    meson  setup ..            \
-        --prefix=/usr       \
-        --buildtype=release \
-        -Dgpl=enabled       \
-        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-        -Dpackage-name="GStreamer 1.22.6 BLFS" &&
-    ninja
-    ninja install
-    cd /opt
-    read
-    clear
-fi
-
-if [ $libselect = "7" ]
-then
-fi
-
-if [ $libselect = "8" ]
-then
-fi
+meson  setup ..            \
+    --prefix=/usr       \
+    --buildtype=release \
+    -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+    -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+ninja
+ninja install
+cd /opt
+read
+clear
