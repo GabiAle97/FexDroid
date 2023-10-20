@@ -98,7 +98,7 @@ then
         -Dpackage-name="GStreamer 1.22.6 BLFS" &&
     ninja
     ninja install
-    cd /opt/Scripts
+    cd /opt
     read
     clear
 fi
@@ -122,14 +122,14 @@ then
         -Dpackage-name="GStreamer 1.22.6 BLFS"    &&
     ninja
     ninja install
-    cd /opt/Scripts
+    cd /opt
     read
     clear
 fi
 
 if [ $libselect = "3" ]
 then
-    apt install -y ffmpeg
+    apt install -y ffmpeg libavfilter-dev
     box_out_warning "Installing gst-libav-1.22.6"
     mkdir gst-libav-1.22.6
     wget -q https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.6.tar.xz
@@ -146,7 +146,7 @@ then
         -Dpackage-name="GStreamer 1.22.6 BLFS" &&
     ninja
     ninja install
-    cd /opt/Scripts
+    cd /opt
     read
     clear
 fi
