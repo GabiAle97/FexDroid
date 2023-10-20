@@ -57,7 +57,7 @@ function box_out_failure() {
   tput sgr 0
 }
 
-if [ -e /opt/newmeson ]
+if [ ! -e /opt/newmeson ]
 then
     wget -q http://launchpadlibrarian.net/683244912/meson_1.2.1-3_all.deb -O meson.deb
     dpkg -i meson.deb
