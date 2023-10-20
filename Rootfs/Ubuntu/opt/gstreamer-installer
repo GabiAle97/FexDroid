@@ -90,7 +90,6 @@ meson  setup ..            \
 ninja
 ninja install
 cd /opt
-read
 clear
 
 box_out_warning "Installing gst-plugins-base 1.22.6"
@@ -112,7 +111,6 @@ meson  setup ..               \
 ninja
 ninja install
 cd /opt
-read
 clear
 
 box_out_warning "Installing gst-plugins-good-1.22.6"
@@ -133,7 +131,6 @@ meson setup ..            \
 ninja
 ninja install
 cd /opt
-read
 clear
 
 box_out_warning "Installing gst-plugins-bad-1.22.6"
@@ -155,7 +152,6 @@ meson  setup ..            \
 ninja
 ninja install
 cd /opt
-read
 clear
 
 box_out_warning "Installing gst-plugins-ugly-1.22.6"
@@ -177,7 +173,6 @@ meson  setup ..            \
 ninja
 ninja install
 cd /opt
-read
 clear
 
 box_out_warning "Installing gst-libav-1.22.6"
@@ -198,5 +193,4 @@ meson  setup ..            \
 ninja
 ninja install
 cd /opt
-read
 clear
