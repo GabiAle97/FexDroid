@@ -93,7 +93,7 @@ then
         -Dpackage-name="GStreamer 1.22.6 BLFS" &&
     ninja
     ninja install
-    cd /opt/Script
+    cd /opt/Scripts
     read
     clear
 fi
@@ -117,7 +117,7 @@ then
         -Dpackage-name="GStreamer 1.22.6 BLFS"    &&
     ninja
     ninja install
-    cd /opt/Script
+    cd /opt/Scripts
     read
     clear
 fi
@@ -141,7 +141,7 @@ then
         -Dpackage-name="GStreamer 1.22.6 BLFS" &&
     ninja
     ninja install
-    cd /opt/Script
+    cd /opt/Scripts
     read
     clear
 fi
