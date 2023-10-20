@@ -94,6 +94,7 @@ then
     ninja
     ninja install
     cd /opt/Script
+    read
     clear
 fi
 
@@ -117,6 +118,7 @@ then
     ninja
     ninja install
     cd /opt/Script
+    read
     clear
 fi
 
@@ -140,5 +142,6 @@ then
     ninja
     ninja install
     cd /opt/Script
+    read
     clear
 fi
