@@ -199,7 +199,7 @@ then
   . /opt/Fex
 elif [ $option = "5" ]
 then
-  . /opt/gstreamer-installer
+  . /opt/Scripts/gstreamer-installer
   . /opt/Fex
 
 elif [ $option = "8" ]
