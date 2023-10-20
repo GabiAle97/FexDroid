@@ -56,8 +56,13 @@ function box_out_failure() {
   echo " -${b//?/-}-"
   tput sgr 0
 }
-wget -q http://launchpadlibrarian.net/683244912/meson_1.2.1-3_all.deb -O meson.deb
-dpkg -i meson.deb
+
+if [ -e /opt/newmeson ]
+then
+    wget -q http://launchpadlibrarian.net/683244912/meson_1.2.1-3_all.deb -O meson.deb
+    dpkg -i meson.deb
+    touch /opt/newmeson
+fi
 
 clear
 
