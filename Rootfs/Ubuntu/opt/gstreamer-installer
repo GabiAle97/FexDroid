@@ -61,61 +61,84 @@ dpkg -i meson.deb
 
 clear
 
-box_out_warning "Installing gstreamer 1.22.6"
+lines=("Select libraries to install: "
+       ""
+       "1) gstreamer"
+       "2) gst-plugins-base"
+       "3) gst-libav"
+       "")
 
-apt install -y libglib2.0-dev &>/dev/null
-mkdir gstreamer
-wget -q https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.22.6.tar.xz -O gstreamer.tar.xz &>/dev/null
-tar -xJf gstreamer.tar.xz -C ./gstreamer &>/dev/null
-cd gstreamer
-cd $(ls)
-mkdir build &&
-cd    build &&
+box_out_success "${lines[@]}"
+read libselect
 
-meson  setup ..            \
-       --prefix=/usr       \
-       --buildtype=release \
-       -Dgst_debug=false   \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.22.6 BLFS" &&
-ninja &>/dev/null
-ninja install &>/dev/null
-cd /opt/Script
-clear
+if [ $libselect = "1" ]
+then
 
-box_out_warning "Installing gst-plugins-base 1.22.6"
-mkdir gst-plugins-base
-wget -q https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.22.6.tar.xz -O gst-plugins-base.tar.xz &>/dev/null
-tar -xJf gst-plugins-base.tar.xz -C ./gst-plugins-base &>/dev/null
-cd gst-plugins-base
-cd $(ls)
-mkdir build &&
-cd    build &&
+    box_out_warning "Installing gstreamer 1.22.6"
 
-meson  setup ..               \
-       --prefix=/usr          \
-       --buildtype=release    \
-       --wrap-mode=nodownload \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.22.6 BLFS"    &&
-ninja
-ninja install
-cd /opt/Script
-clear
+    apt install -y libglib2.0-dev 
+    mkdir gstreamer
+    wget -q https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.22.6.tar.xz -O gstreamer.tar.xz 
+    tar -xJf gstreamer.tar.xz -C ./gstreamer 
+    cd gstreamer
+    cd $(ls)
+    mkdir build &&
+    cd    build &&
 
-box_out_warning "Installing gst-libav-1.22.6"
-mkdir gst-libav-1.22.6
-wget -q https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.6.tar.xz
-tar -xJf gst-libav-1.22.6.tar.xz -C ./gst-libav-1.22.6
-cd gst-libav-1.22.6
-cd $(ls)
-mkdir build &&
-cd    build &&
+    meson  setup ..            \
+        --prefix=/usr       \
+        --buildtype=release \
+        -Dgst_debug=false   \
+        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+        -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+    ninja
+    ninja install
+    cd /opt/Script
+    clear
+fi
 
-meson  setup ..            \
-       --prefix=/usr       \
-       --buildtype=release \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.22.6 BLFS" &&
-ninja
-ninja install
+if [ $libselect = "2" ]
+then
+    box_out_warning "Installing gst-plugins-base 1.22.6"
+    mkdir gst-plugins-base
+    wget -q https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.22.6.tar.xz -O gst-plugins-base.tar.xz 
+    tar -xJf gst-plugins-base.tar.xz -C ./gst-plugins-base 
+    cd gst-plugins-base
+    cd $(ls)
+    mkdir build &&
+    cd    build &&
+
+    meson  setup ..               \
+        --prefix=/usr          \
+        --buildtype=release    \
+        --wrap-mode=nodownload \
+        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+        -Dpackage-name="GStreamer 1.22.6 BLFS"    &&
+    ninja
+    ninja install
+    cd /opt/Script
+    clear
+fi
+
+if [ $libselect = "3" ]
+then
+    apt install -y ffmpeg
+    box_out_warning "Installing gst-libav-1.22.6"
+    mkdir gst-libav-1.22.6
+    wget -q https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.6.tar.xz
+    tar -xJf gst-libav-1.22.6.tar.xz -C ./gst-libav-1.22.6
+    cd gst-libav-1.22.6
+    cd $(ls)
+    mkdir build &&
+    cd    build &&
+
+    meson  setup ..            \
+        --prefix=/usr       \
+        --buildtype=release \
+        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+        -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+    ninja
+    ninja install
+    cd /opt/Script
+    clear
+fi
