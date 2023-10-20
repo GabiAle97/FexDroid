@@ -1,69 +1,18 @@
 #!/bin/bash
-mkdir temp-debs
-cd temp-debs
-echo "Installing libgstreamer1.0-dev"
-mkdir libgstreamer1.0-dev
-cd libgstreamer1.0-dev
-mkdir depend
-wget -q http://ports.ubuntu.com/pool/main/g/gstreamer1.0/libgstreamer1.0-dev_1.22.2-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gstreamer1.0/libgstreamer1.0-dev_1.22.2-1_arm64.deb
-cd depend
-wget -q http://ports.ubuntu.com/pool/main/g/gstreamer1.0/gir1.2-gstreamer-1.0_1.22.2-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glibc/libc6_2.35-0ubuntu3.4_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glibc/libc6-dev_2.35-0ubuntu3.4_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/e/elfutils/libdw-dev_0.188-2.1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glib2.0/libglib2.0-0_2.76.4-0ubuntu1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glib2.0/libglib2.0-dev_2.76.4-0ubuntu1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gstreamer1.0/libgstreamer1.0-0_1.22.2-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/libu/libunwind/libunwind-dev_1.6.2-3_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gstreamer1.0/gir1.2-gstreamer-1.0_1.22.2-1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glibc/libc6_2.35-0ubuntu3.4_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glibc/libc6-dev_2.35-0ubuntu3.4_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/e/elfutils/libdw-dev_0.188-2.1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glib2.0/libglib2.0-0_2.76.4-0ubuntu1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/glib2.0/libglib2.0-dev_2.76.4-0ubuntu1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gstreamer1.0/libgstreamer1.0-0_1.22.2-1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/libu/libunwind/libunwind-dev_1.6.2-3_arm64.deb
-#dpkg -i *.deb
-cd ..
-#dpkg -i *.deb
-cd ..
-echo "Installing libgstreamer-plugins-base1.0-dev"
-mkdir libgstreamer-plugins-base1.0-dev
-cd libgstreamer-plugins-base1.0-dev
-mkdir depend
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-plugins-base1.0-dev_1.22.1-1ubuntu1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-plugins-base1.0-dev_1.22.1-1ubuntu1_arm64.deb
-cd depend
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/gir1.2-gst-plugins-base-1.0_1.22.1-1ubuntu1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/libd/libdrm/libdrm-dev_2.4.114-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libglvnd/libegl-dev_1.6.0-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/m/mesa/libgbm-dev_23.0.2-1ubuntu1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libglvnd/libgl-dev_1.6.0-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libglvnd/libgles-dev_1.6.0-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-gl1.0-0_1.22.1-1ubuntu1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-gl1.0-0_1.22.1-1ubuntu1.1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-plugins-base1.0-0_1.22.1-1ubuntu1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-plugins-base1.0-0_1.22.1-1ubuntu1.1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libgudev/libgudev-1.0-dev_237-2build1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/o/orc/liborc-0.4-dev_0.4.34-3_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/w/wayland/libwayland-dev_1.21.0-1_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/libx/libx11/libx11-xcb-dev_1.8.4-2_armhf.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/gir1.2-gst-plugins-base-1.0_1.22.1-1ubuntu1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/libd/libdrm/libdrm-dev_2.4.114-1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libglvnd/libegl-dev_1.6.0-1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/m/mesa/libgbm-dev_23.0.2-1ubuntu1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libglvnd/libgl-dev_1.6.0-1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libglvnd/libgles-dev_1.6.0-1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-gl1.0-0_1.22.1-1ubuntu1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-gl1.0-0_1.22.1-1ubuntu1.1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-plugins-base1.0-0_1.22.1-1ubuntu1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/g/gst-plugins-base1.0/libgstreamer-plugins-base1.0-0_1.22.1-1ubuntu1.1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/libg/libgudev/libgudev-1.0-dev_237-2build1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/o/orc/liborc-0.4-dev_0.4.34-3_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/w/wayland/libwayland-dev_1.21.0-1_arm64.deb
-wget -q http://ports.ubuntu.com/pool/main/libx/libx11/libx11-xcb-dev_1.8.4-2_arm64.deb
-#dpkg -i *.deb
-cd ..
-#dpkg -i *.deb
-cd ..
+mkdir gstreamer
+wget -q https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.22.6.tar.xz -O gstreamer.tar.xz &>/dev/null
+tar -xJf gstreamer.tar.xz -C ./gstreamer &>/dev/null
+wget -q http://launchpadlibrarian.net/683244912/meson_1.2.1-3_all.deb -O meson.deb
+dpkg -i meson.deb
+cd gstreamer
+mkdir build &&
+cd    build &&
+
+meson  setup ..            \
+       --prefix=/usr       \
+       --buildtype=release \
+       -Dgst_debug=false   \
+       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
+       -Dpackage-name="GStreamer 1.22.6 BLFS" &&
+ninja
+ninja install
