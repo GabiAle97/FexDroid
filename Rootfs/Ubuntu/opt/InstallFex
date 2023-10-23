@@ -63,13 +63,13 @@ box_out_warning "INSTALLING FEX & PACKAGES"
 
 sleep 5
 
-apt-get update -y &>/dev/null
+apt-get update -y 
 
-apt-get upgrade -y &>/dev/null
+apt-get upgrade -y 
 
-apt install sudo -y curl -y &>/dev/null
+apt install sudo -y curl -y 
 
-sudo apt-get install -y software-properties-common &>/dev/null
+sudo apt-get install -y software-properties-common 
 
 sudo apt-get remove -y llvm* python*
 
