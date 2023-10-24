@@ -71,10 +71,7 @@ apt install sudo -y curl -y
 
 sudo apt-get install -y software-properties-common 
 
-sudo apt-get install --reinstall -y winbind lsb-core zstd wget pv pip gpg wine winetricks 
-read
-
-sudo apt-get install --reinstall -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+sudo apt-get install --reinstall -y winbind lsb-core zstd wget pv pip gpg
 
 curl --silent https://raw.githubusercontent.com/FEX-Emu/FEX/main/Scripts/InstallFEX.py --output /tmp/InstallFEX.py && python3 /tmp/InstallFEX.py && rm /tmp/InstallFEX.py
 
