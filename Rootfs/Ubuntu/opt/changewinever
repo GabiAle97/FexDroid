@@ -340,10 +340,10 @@ else
 fi
 
 box_out_warning "Creating new Wine prefix..."
-WINEDLLOVERRIDES=mscoree=d box64 wineboot 
+WINEDLLOVERRIDES=mscoree=d FEXInterpreter /opt/wine/bin/wineboot 
 
 box_out_warning "Installing DXVK 2.2, D8VK 1.0, vkd3d-proton 2.10..."
-box64 wine64 z:/opt/Resources64/DXVK2.2/DXVK2.2.bat 
+FEXInterpreter /opt/wine/bin/wine64 z:/opt/Resources64/DXVK2.2/DXVK2.2.bat 
 
 box_out_success "Done installing DXVK2.2"
 cp /opt/Resources/D8VK1.0/d3d8.dll /root/.wine/drive_c/windows/syswow64/
@@ -355,7 +355,7 @@ box_out_success "Copied VKD3D 2.10 x64"
 cp /opt/Resources64/vkd3d-proton2.10/d3d12*.dll /root/.wine/drive_c/windows/system32/
 
 box_out_success "Copied VKD3D 2.10 x86"
-box64 wine64 z:/opt/Resources64/OverrideDlls.bat 
+FEXInterpreter /opt/wine/bin/wine64 z:/opt/Resources64/OverrideDlls.bat 
 
 box_out_warning "Copying shortucts..."
 cp -r /opt/Shortcuts/* "/root/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu"

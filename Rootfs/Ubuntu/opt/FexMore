@@ -91,7 +91,7 @@ clear
 
 box_out_warning "CREATING NEW PREFIX"
 
-WINEDLLOVERRIDES=mscoree=d box64 wineboot &>/dev/null
+WINEDLLOVERRIDES=mscoree=d FEXInterpreter /opt/wine/bin/wineboot &>/dev/null
 
 sleep 1
 
@@ -105,11 +105,11 @@ lines=("INSTALLING: "
 
 box_out_success "${lines[@]}"
 
-box64 wine z:/opt/Resources64/DXVK2.2/DXVK2.2.bat &>/dev/null
+FEXInterpreter /opt/wine/bin/wine z:/opt/Resources64/DXVK2.2/DXVK2.2.bat &>/dev/null
 cp /opt/Resources/D8VK1.0/d3d8.dll /root/.wine/drive_c/windows/syswow64/
 cp /opt/Resources/vkd3d-proton2.10/d3d12*.dll /root/.wine/drive_c/windows/syswow64/
 cp /opt/Resources64/vkd3d-proton2.10/d3d12*.dll /root/.wine/drive_c/windows/system32/
-box64 wine z:/opt/Resources64/OverrideDlls.bat &>/dev/null
+FEXInterpreter /opt/wine/bin/wine z:/opt/Resources64/OverrideDlls.bat &>/dev/null
 
 sleep 1 
 
@@ -230,5 +230,5 @@ fi
 
 read -p "" sair
 case $sair in
-           [1]* ) echo "";box64 wineserver -k &>/dev/null;echo"";echo"";echo ">
+           [1]* ) echo "";FEXInterpreter /opt/wine/bin/wineserver -k &>/dev/null;echo"";echo"";echo ">
 esac

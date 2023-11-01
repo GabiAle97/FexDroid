@@ -110,7 +110,7 @@ fi
 clear
 box_out_success "SELECTED RESOLUTION: $resolution_fex"
 
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version taskset -c 4-7 box64 wine64 explorer /desktop=shell,$resolution_fex /opt/TFM &>/dev/null & FEXInterpreter /opt/wine/bin/wine64 explorer /desktop=shell,$resolution_fex &>/dev/null
+WINEDEBUG=-all DXVK_HUD=fps,gpuload,version FEXInterpreter /opt/wine/bin/wine64 wine64 explorer /desktop=shell,$resolution_fex /opt/TFM
 
 lines=("RUNNING FEXDROID"
 	   "OPEN TERMUX-X11 AND ENJOY!"
@@ -122,6 +122,6 @@ box_out_success "${lines[@]}"
 
 read -p "" sair
 case $sair in
-        [1]* ) echo "";box64 wineserver -k &>/dev/null;echo"";echo "";echo "";. /opt/Fexconfig
+        [1]* ) echo "";FEXInterpreter /opt/wine/bin/wineserver -k &>/dev/null;echo"";echo "";echo "";. /opt/Fexconfig
 esac
  

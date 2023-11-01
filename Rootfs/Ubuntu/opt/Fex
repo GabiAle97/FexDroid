@@ -108,7 +108,7 @@ then
 
 clear
 
-box64 winetricks
+FEXInterpreter /opt/wine/bin/winetricks
 
 . /opt/Fex
 
@@ -145,5 +145,5 @@ fi
 
 read -p "" sair
 case $sair in
-	[1]* ) echo "";box64 wineserver -k &>/dev/null;echo"";echo"";echo "";exit
+	[1]* ) echo "";FEXInterpreter /opt/wine/bin/wineserver -k &>/dev/null;echo"";echo"";echo "";exit
 esac
