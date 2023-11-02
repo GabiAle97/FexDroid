@@ -263,7 +263,7 @@ then
        mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/ &>/dev/null
        mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ &>/dev/null
        mkdir -p /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu &>/dev/null
-       wget -q https://github.com/GabiAle97/FexDroid/releases/download/FexDroid/rootfs-test.tar.xz -O box64droid-rootfs.tar.xz
+       wget -q https://github.com/GabiAle97/FexDroid/releases/download/FexDroid/rootfs-termux-test.tar.xz -O box64droid-rootfs.tar.xz
 fi
 
 clear
