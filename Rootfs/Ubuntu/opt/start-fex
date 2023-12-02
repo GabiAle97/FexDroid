@@ -110,7 +110,7 @@ fi
 clear
 box_out_success "SELECTED RESOLUTION: $resolution_fex"
 
-WINEDEBUG=-all DXVK_HUD=fps,gpuload,version FEXInterpreter /opt/wine/bin/wine64 wine64 explorer /desktop=shell,$resolution_fex /opt/TFM
+DXVK_HUD=fps,gpuload,version FEXInterpreter /opt/wine/bin/wine64 wine64 explorer /desktop=shell,$resolution_fex /opt/TFM
 
 lines=("RUNNING FEXDROID"
 	   "OPEN TERMUX-X11 AND ENJOY!"
